@@ -50,7 +50,7 @@
     <div>
       <asp:GridView ID="gridProducts" runat="server" 
         AutoGenerateColumns="False" 
-        CellPadding="4" ForeColor="#333333" GridLines="None" PageSize="5">
+        CellPadding="4" ForeColor="#333333" GridLines="None" PageSize="10" AllowPaging="True" OnPageIndexChanging="gridProducts_PageIndexChanging">
 
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <%-- COLUMNAS --%>

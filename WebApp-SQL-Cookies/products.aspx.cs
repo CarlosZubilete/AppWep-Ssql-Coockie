@@ -4,36 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-/// Todo: Later this won´t be here
-using System.Data.SqlClient;
-using System.Data;
+using WebApp_SQL_Cookies.connection; // Added a carpet connection
 
 namespace WebApp_SQL_Cookies
 {
   public partial class Web_products : System.Web.UI.Page
   {
-    private const string _connectingString = @"Data Source=DESKTOP-LFTFVP5\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
-    private string _query = "SELECT * FROM Productos";
     protected void Page_Load(object sender, EventArgs e)
     {
       if (!IsPostBack)
       {
-        SqlConnection connection = new SqlConnection(_connectingString);
-        connection.Open();
-        
-        SqlDataAdapter adapter = new SqlDataAdapter(_query, connection);
-
-        DataSet dataSet = new DataSet();
-
-        adapter.Fill(dataSet, "Productos");
-
-        gridProducts.DataSource = dataSet.Tables["Productos"];
-
-        gridProducts.DataBind();
-
-        connection.Close();
+        this.LoadGridView();
       }
     }
-    // TODO: Crear HandleProductos.cs and Producto
+    private void LoadGridView()
+    {
+      HandleProducto handleProducto = new HandleProducto();
+      gridProducts.DataSource = handleProducto.GetAllProducts();
+      gridProducts.DataBind();
+    }
+    // Control the pagination:
+    protected void gridProducts_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+      gridProducts.PageIndex = e.NewPageIndex;
+      this.LoadGridView();
+    }
   }
 }
