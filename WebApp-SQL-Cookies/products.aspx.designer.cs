@@ -11,7 +11,7 @@ namespace WebApp_SQL_Cookies
 {
 
 
-  public partial class Web_Index
+  public partial class Web_products
   {
 
     /// <summary>
@@ -49,5 +49,14 @@ namespace WebApp_SQL_Cookies
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+    /// <summary>
+    /// gridProducts control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.GridView gridProducts;
   }
 }

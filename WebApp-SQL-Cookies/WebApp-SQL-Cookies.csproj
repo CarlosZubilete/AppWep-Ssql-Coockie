@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="index.css" />
     <Content Include="index.aspx" />
+    <Content Include="products.aspx" />
+    <Content Include="products.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +81,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products.aspx.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products.aspx.designer.cs">
+      <DependentUpon>products.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

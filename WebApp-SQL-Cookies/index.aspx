@@ -13,26 +13,28 @@
   <link rel="stylesheet" type="text/css" href="index.css"/>  
 </head>
 <body>
-      <%-- Nav --%>
+    <%-- Nav --%>
     <div class="navBar">
         <ul class="navBar__ul">
+          <%-- INDEX --%>
             <li class="navBar__ul__li">
-                <asp:HyperLink  ID="HyperLink2" 
+                <asp:HyperLink  ID="linkIndex" 
                   runat="server" 
-                  NavigateUrl=".aspx" 
+                  NavigateUrl="~/index.aspx" 
                   CssClass="navBar__link active" >
                     Home
                 </asp:HyperLink>
             </li>
-        
+          <%-- PRODUCTS --%>
             <li class="navBar__ul__li">
-                <asp:HyperLink ID="linkListSuc" 
+                <asp:HyperLink ID="linkProducts" 
                   runat="server" 
-                  NavigateUrl=".aspx" 
+                  NavigateUrl="~/products.aspx" 
                   CssClass="navBar__link" >
-                    Ejercicio-1 
+                    Productos 
                 </asp:HyperLink>
             </li>
+          <%-- EJERCIO-2 --%>
             <li class="navBar__ul__li">          
                 <asp:HyperLink ID="HyperLink1" 
                   runat="server" NavigateUrl=".aspx" 
@@ -45,6 +47,7 @@
 
   <form id="form1" runat="server">
       <div>
+        <h1 class="title" >Hi! Bienvenido a mi Página WEB</h1>
       </div>        
   </form>
 </body>
