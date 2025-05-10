@@ -72,3 +72,52 @@ body {
   font-size: 1.8rem;
   color: #555;
 }
+
+/* Encabezado */
+.header-style {
+  background-color: #2C3E50;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Filas */
+.row-style {
+  background-color: #F7F6F3;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+/* Filas alternas */
+.alternating-row {
+  background-color: #E9E7E2;
+}
+
+/* Fila en modo edición */
+.edit-row {
+  background-color: #D4E6F1;
+  color: #333;
+}
+
+/* Paginación */
+.pager-style {
+  background-color: #2C3E50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Botones de acción */
+.grid-action-button {
+  background-color: #16A085;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  .grid-action-button:hover {
+    background-color: #1ABC9C;
+  }

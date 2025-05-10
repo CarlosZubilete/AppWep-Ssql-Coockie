@@ -66,11 +66,14 @@ namespace WebApp_SQL_Cookies
       // Intance Producto
       Producto producto = new Producto( Convert.ToInt32(id), name, cantXunidad, Convert.ToDecimal(precioUnidad));
 
+     
       HandleProducto handleProducto = new HandleProducto();
       handleProducto.UpdateProducto(producto);
 
       gridProducts.EditIndex = -1;
       this.LoadGridView();
     }
+  
+    // TODO: ADD try and catch , and send a ok message or bad message.
   }
 }
