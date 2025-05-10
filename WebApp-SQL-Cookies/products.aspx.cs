@@ -29,5 +29,19 @@ namespace WebApp_SQL_Cookies
       gridProducts.PageIndex = e.NewPageIndex;
       this.LoadGridView();
     }
+    // Delete a register with their ID
+    protected void gridProducts_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+      // First , I find a index of the identificator for deteled
+      string idProducto = ((Label)gridProducts.Rows[e.RowIndex].FindControl("itemTemplate_IDProducto")).Text;
+
+      Producto producto = new Producto();
+      producto.Id = Convert.ToInt32(idProducto);
+
+      HandleProducto handleProducto = new HandleProducto();
+      handleProducto.DeleteProducto(producto);
+
+      this.LoadGridView();
+    }
   }
 }

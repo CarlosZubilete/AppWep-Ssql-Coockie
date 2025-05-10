@@ -29,5 +29,20 @@ namespace WebApp_SQL_Cookies.connection
         return dataSet.Tables[nombreTabla];
       }
     }
+    public bool DeleteProducto(Producto producto)
+    {
+      SqlCommand command = new SqlCommand();
+      ParameterDeleteProducto(ref command, producto);
+      DataAccess dataAccess = new DataAccess();
+      int filasAfectadas = dataAccess.ExecuteNoQuery(command, "spEliminarProducto");
+      return filasAfectadas == 1;   
+    }
+    private void ParameterDeleteProducto(ref SqlCommand command, Producto producto)
+    {
+      SqlParameter parameter = new SqlParameter();
+      parameter = command.Parameters.Add("@IDPRODUCTO", SqlDbType.Int);
+      parameter.Value = producto.Id;
+    }
+
   }
 }

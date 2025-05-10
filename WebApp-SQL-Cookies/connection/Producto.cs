@@ -8,6 +8,7 @@ namespace WebApp_SQL_Cookies.connection
   public class Producto
   {
     public Producto() { } 
+    
     public Producto(int id, string name, string cantXunidad, float precioUnidad)
     {
       _id = id;
