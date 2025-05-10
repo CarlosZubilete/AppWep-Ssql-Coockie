@@ -47,6 +47,12 @@
   <form id="form1" runat="server">
     
     <h1 class="title">Productos</h1>
+    <span>
+    <%-- TEST OF THE COUNTER --%>
+      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+      <asp:Timer ID="timerCount" runat="server" Interval="3000" OnTick="timerCount_Tick"></asp:Timer>
+      <asp:Label Text="" runat="server" ID="lblShow_SO" ></asp:Label>
+    </span>
     <div>
       <asp:GridView ID="gridProducts" runat="server" 
         AutoGenerateColumns="False" 
