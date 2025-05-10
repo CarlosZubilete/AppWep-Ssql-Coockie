@@ -16,6 +16,23 @@ namespace WebApp_SQL_Cookies.connection
     {
       return GetDataTable("Productos", "SELECT * FROM Productos");
     }
+    public bool DeleteProducto(Producto producto)
+    {
+      SqlCommand command = new SqlCommand();
+      ParameterDeleteProducto(ref command, producto);
+      DataAccess dataAccess = new DataAccess();
+      int filasAfectadas = dataAccess.ExecuteNoQuery(command, "spEliminarProducto");
+      return filasAfectadas == 1;
+    }
+    public bool UpdateProducto(Producto producto)
+    {
+      SqlCommand command = new SqlCommand();
+      ParameterUpdateProducto(ref command, producto);
+      DataAccess dataAccess = new DataAccess();
+      int filasAfectadas = dataAccess.ExecuteNoQuery(command, "spActualizarProducto");
+      return filasAfectadas == 1;
+    }
+    // PRIVATE
     private DataTable GetDataTable(string nombreTabla, string querySql)
     {
       DataAccess dataAccess = new DataAccess();
@@ -29,20 +46,41 @@ namespace WebApp_SQL_Cookies.connection
         return dataSet.Tables[nombreTabla];
       }
     }
-    public bool DeleteProducto(Producto producto)
-    {
-      SqlCommand command = new SqlCommand();
-      ParameterDeleteProducto(ref command, producto);
-      DataAccess dataAccess = new DataAccess();
-      int filasAfectadas = dataAccess.ExecuteNoQuery(command, "spEliminarProducto");
-      return filasAfectadas == 1;   
-    }
     private void ParameterDeleteProducto(ref SqlCommand command, Producto producto)
     {
       SqlParameter parameter = new SqlParameter();
       parameter = command.Parameters.Add("@IDPRODUCTO", SqlDbType.Int);
       parameter.Value = producto.Id;
     }
-
+    private void ParameterUpdateProducto(ref SqlCommand command , Producto producto)
+    {
+      SqlParameter parameter = new SqlParameter();
+      parameter = command.Parameters.Add("@IDPRODUCTO", SqlDbType.Int);
+      parameter.Value = producto.Id;
+      parameter = command.Parameters.Add("@NOMBREPRODUCTO", SqlDbType.NVarChar, 40);
+      parameter.Value = producto.Name;
+      parameter = command.Parameters.Add("@CANTIDADPORUNIDAD", SqlDbType.NVarChar, 20);
+      parameter.Value = producto.CantXUnidad;
+      parameter = command.Parameters.Add("@PRECIOUNIDAD", SqlDbType.Money);
+      parameter.Value = producto.PrecioUnidad;
+    }
   }
 }
+
+/*
+  CREATE PROCEDURE spActualizarProducto
+  (
+  @IDPRODUCTO INT,
+  @NOMBREPRODUCTO NVARCHAR(40),
+  @CANTIDADPORUNIDAD NVARCHAR(20),
+  @PRECIOUNIDAD MONEY
+  )
+  AS
+  UPDATE Productos
+  SET
+  NombreProducto=@NOMBREPRODUCTO,
+  CantidadPorUnidad=@CANTIDADPORUNIDAD,
+  PrecioUnidad=@PRECIOUNIDAD
+  WHERE IdProducto=@IDPRODUCTO
+  RETURN
+*/

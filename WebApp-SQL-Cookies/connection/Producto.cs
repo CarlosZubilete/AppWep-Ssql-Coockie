@@ -9,7 +9,7 @@ namespace WebApp_SQL_Cookies.connection
   {
     public Producto() { } 
     
-    public Producto(int id, string name, string cantXunidad, float precioUnidad)
+    public Producto(int id, string name, string cantXunidad, decimal precioUnidad)
     {
       _id = id;
       _name = name; 
@@ -51,7 +51,7 @@ namespace WebApp_SQL_Cookies.connection
         _cantXunidad = value;
       }
     }
-    public float PrecioUnidad
+    public decimal PrecioUnidad
     {
       get
       {
@@ -66,6 +66,6 @@ namespace WebApp_SQL_Cookies.connection
     int _id;
     string _name; 
     string _cantXunidad;
-    float _precioUnidad;    
+    decimal _precioUnidad;    
   }
 }
