@@ -75,6 +75,8 @@
     <Content Include="products.css" />
     <Content Include="selectProduct.aspx" />
     <Content Include="selectProduct.css" />
+    <Content Include="showProduct.aspx" />
+    <Content Include="showProduct.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +111,13 @@
     </Compile>
     <Compile Include="selectProduct.aspx.designer.cs">
       <DependentUpon>selectProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showProduct.aspx.cs">
+      <DependentUpon>showProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showProduct.aspx.designer.cs">
+      <DependentUpon>showProduct.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -50,14 +50,18 @@
         <div>
           <ul>
             <li>
-              <asp:HyperLink ID="HyperLink2" 
-                  runat="server" NavigateUrl="~/selectProduct.aspx" 
+              <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/selectProduct.aspx" 
                   CssClass="navBar__link">
                     Seleccionar Producto
               </asp:HyperLink>
             </li>
             <li>Elimnar Productos Seleccionados</li>
-            <li>Mostrar Productos</li>
+            <li>
+              <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/showProduct.aspx" 
+                  CssClass="navBar__link">
+                    Mostrar Producto
+              </asp:HyperLink>
+            </li>
           </ul>  
         </div>
     </form>
