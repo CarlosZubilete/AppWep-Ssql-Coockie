@@ -36,9 +36,9 @@
           <%-- EJERCICIO-2--%> 
             <li class="navBar__ul__li">          
                 <asp:HyperLink ID="HyperLink1" 
-                  runat="server" NavigateUrl=".aspx" 
+                  runat="server" NavigateUrl="~/cookie.aspx" 
                   CssClass="navBar__link">
-                    Ejercicio-2 
+                    Cookie 
                 </asp:HyperLink>
             </li>
         </ul>

@@ -67,16 +67,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cookie.css" />
     <Content Include="index.css" />
     <Content Include="index.aspx" />
+    <Content Include="cookie.aspx" />
     <Content Include="products.aspx" />
     <Content Include="products.css" />
+    <Content Include="selectProduct.aspx" />
+    <Content Include="selectProduct.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="connection\DataAccess.cs" />
     <Compile Include="connection\HandleProducto.cs" />
     <Compile Include="connection\Producto.cs" />
+    <Compile Include="cookie.aspx.cs">
+      <DependentUpon>cookie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cookie.aspx.designer.cs">
+      <DependentUpon>cookie.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -91,6 +102,13 @@
     </Compile>
     <Compile Include="products.aspx.designer.cs">
       <DependentUpon>products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="selectProduct.aspx.cs">
+      <DependentUpon>selectProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="selectProduct.aspx.designer.cs">
+      <DependentUpon>selectProduct.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
