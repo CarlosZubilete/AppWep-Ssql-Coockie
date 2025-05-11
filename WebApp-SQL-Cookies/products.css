@@ -10,7 +10,7 @@
 body {
   background-color: #f4f4f4;
   color: #333;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,18 +47,18 @@ body {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-  /* Efecto hover */
-  .navBar__link:hover {
-    color: #16A085;
-    transform: scale(1.05);
-  }
+/* Efecto hover */
+.navBar__link:hover {
+  color: #16A085;
+  transform: scale(1.05);
+}
 
-  /* Link activo */
-  .navBar__link.active {
-    color: #6DD5ED;
-    letter-spacing: 0.15rem;
-    border-bottom: 2px solid #6DD5ED;
-  }
+/* Link activo */
+.navBar__link.active {
+  color: #6DD5ED;
+  letter-spacing: 0.15rem;
+  border-bottom: 2px solid #6DD5ED;
+}
 
 /* Efecto hover en los elementos de la lista */
 .navBar__ul__li:hover {
@@ -68,11 +68,28 @@ body {
 
 /* Título */
 .title {
+  /*border: 1px solid #ff0000;*/
+  text-align: center;
   margin: 2rem 0 1rem 0;
   font-size: 1.8rem;
   color: #555;
 }
 
+.SO_message {
+  display:block;
+  /*border : 1px solid #ff0000;*/
+  text-align: center;
+  /*margin: 2rem 0 1rem 0;*/
+  font-size: 1rem;
+  color: #ff0000;
+}
+
+/* GridView general */
+.grid-view {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
 /* Encabezado */
 .header-style {
   background-color: #2C3E50;
@@ -85,11 +102,13 @@ body {
 .row-style {
   background-color: #F7F6F3;
   color: #333;
+  text-align: center;
   transition: background-color 0.3s ease;
 }
 
 /* Filas alternas */
 .alternating-row {
+  text-align:center;
   background-color: #E9E7E2;
 }
 
@@ -101,9 +120,12 @@ body {
 
 /* Paginación */
 .pager-style {
+  height:50px;
+  text-align:center;
+  /*border: 1px solid #ff0000;*/ 
   background-color: #2C3E50;
   color: white;
-  padding: 10px;
+  padding:0 20px ;
   border-radius: 5px;
 }
 
@@ -118,6 +140,6 @@ body {
   transition: background-color 0.3s ease;
 }
 
-  .grid-action-button:hover {
-    background-color: #1ABC9C;
-  }
+.grid-action-button:hover {
+  background-color: #1ABC9C;
+}

@@ -17,8 +17,9 @@ namespace WebApp_SQL_Cookies
       if (!IsPostBack)
       {
         this.LoadGridView();
+        // STOP TIMER 
+        timerCount.Enabled = false;
       }
-      
     }
     private void LoadGridView()
     {
@@ -35,7 +36,6 @@ namespace WebApp_SQL_Cookies
     // Delete a register with their ID
     protected void gridProducts_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-
       try
       {
         // First , I find a index of the identificator for deteled
@@ -48,14 +48,18 @@ namespace WebApp_SQL_Cookies
         if (handleProducto.DeleteProducto(producto))
         {
           this.LoadGridView();
-          lblShow_SO.Text = $"Registro se ha Eliminado"; 
+          lblShow_SO.Text = $"Registro se ha Eliminado";
+          // Start timer 
+          timerCount.Enabled = true;
         }
       }
       catch (Exception err)
       {
         gridProducts.EditIndex = -1;
         this.LoadGridView();
-        lblShow_SO.Text = $"So dice : Erro al eliminar el registro: " +  err.Message; 
+        lblShow_SO.Text = $"So dice : Erro al eliminar el registro: " +  err.Message;
+        // Start timer 
+        timerCount.Enabled = true;
       }
     }
     // When the user press edit button
@@ -88,8 +92,7 @@ namespace WebApp_SQL_Cookies
           gridProducts.EditIndex = -1;
           this.LoadGridView();
           lblShow_SO.Text = $"Registro {id} se ha actualizado.";
-          
-          // Iniciar el temporizador
+          // Start timer 
           timerCount.Enabled = true;
         }
       }
@@ -98,6 +101,7 @@ namespace WebApp_SQL_Cookies
         gridProducts.EditIndex = -1;
         this.LoadGridView();
         lblShow_SO.Text = "SO dice: Error a actualizar el registro" + err.Message;
+        // Start timer 
         timerCount.Enabled = true;
       }
     }
@@ -105,11 +109,9 @@ namespace WebApp_SQL_Cookies
     protected void timerCount_Tick(object sender, EventArgs e)
     {
       lblShow_SO.Text = string.Empty;
-      // Detiene el temporizador para que no se repita
+      // Stop the timer so it doesn't repeat
       timerCount.Enabled = false;
     }
 
-
-    // TODO: ADD try and catch , and send a ok message or bad message.
   }
 }
