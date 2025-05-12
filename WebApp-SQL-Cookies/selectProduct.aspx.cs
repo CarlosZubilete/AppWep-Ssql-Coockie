@@ -31,59 +31,31 @@ namespace WebApp_SQL_Cookies
       this.LoadGridView();
     }
 
-    private bool fisrtRegister = false;
     protected void gridProducts_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
       // Show in the same page 
       string nameProduct = ((Label)gridProducts.Rows[e.NewSelectedIndex].FindControl("itemTemplate_NombreProducto")).Text;
-      lblShowSelected.Text = $"Productos Agregados:' {nameProduct} '";
+      lblShowSelected.Text = $"{nameProduct} se ha agregado.";
       // Save data inside a DataTable for that show in another page.
       string idProducto = ((Label)gridProducts.Rows[e.NewSelectedIndex].FindControl("itemTemplate_IDProducto")).Text;
       string idProveedor = ((Label)gridProducts.Rows[e.NewSelectedIndex].FindControl("itemTemplate_IdProveedor")).Text;
       string precioUnidad = ((Label)gridProducts.Rows[e.NewSelectedIndex].FindControl("itemTemplate_PrecioUnidad")).Text;
 
       // Use a SESION variable
-      //DataTable productTable;
-
       if (Session["TableProduct"] == null)
       {
-        // productTable = this.CreateTable();
-        // Session["TableProduct"] = productTable;
         Session["TableProduct"] = this.CreateTable();
-        fisrtRegister = true;
       }
 
-      if (fisrtRegister)
+      DataRow row = this.GetExistingRow((DataTable)Session["TableProduct"], idProducto);
+      if (row != null)
       {
-        this.AddRegister((DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad);
-        fisrtRegister = false;
+        row["Cantidad"] = (int)row["Cantidad"] + 1;
       }
       else
       {
-        // Verification if the product has been registered yet
-        if (!this.IsRegisterRepeat((DataTable)Session["TableProduct"], idProducto))
-        {
-          this.AddRegister((DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad);
-        }
-        // Verification if the product has been registered yet
-        //bool isRepeatRegister = false;
-        //foreach (DataRow row in ((DataTable)Session["TableProduct"]).Rows)
-        //{
-        //    if (row["IdProducto"].ToString() == idProducto)
-        //    {
-        //        isRepeatRegister = true;
-        //        break;
-        //    }
-        //}
-        //// If the register is not register
-        //if (!isRepeatRegister)
-        //{
-        //    this.AddRegister(ref (DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad);
-        //}
+        this.AddRegister((DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad, 1);
       }
-      // TODO:
-      // 1. Crear fucniones para mejor legilibilidad
-      // 2. Agregar un columna mas "unidades" , para contar los clicks elejidos
     }
     private DataTable CreateTable()
     {
@@ -94,42 +66,53 @@ namespace WebApp_SQL_Cookies
       // Add column to table
       table.Columns.Add(column);
 
-      column = new DataColumn("NombreProducto", System.Type.GetType("System.String"));
-      table.Columns.Add(column);
-
-      column = new DataColumn("IdProveedor", System.Type.GetType("System.String"));
-      table.Columns.Add(column);
-
-      column = new DataColumn("PrecioUnidad", System.Type.GetType("System.String"));
-      table.Columns.Add(column);
+      table.Columns.Add(new DataColumn("NombreProducto", System.Type.GetType("System.String")));
+      table.Columns.Add(new DataColumn("IdProveedor", System.Type.GetType("System.String")));
+      table.Columns.Add(new DataColumn("PrecioUnidad", System.Type.GetType("System.String")));
+      // Added a new column:
+      table.Columns.Add(new DataColumn("Cantidad", typeof(int)));
 
       return table;
     }
-    private DataTable AddRegister(DataTable dataTable, string idProducto, string nameProducto, string idProveedor, string precioUnidad)
+    private DataTable AddRegister(DataTable dataTable, string idProducto, string nameProducto, string idProveedor, string precioUnidad, int cantidad)
     {
       DataRow row = dataTable.NewRow();
       row["IdProducto"] = idProducto;
       row["NombreProducto"] = nameProducto;
       row["IdProveedor"] = idProveedor;
       row["PrecioUnidad"] = precioUnidad;
+      row["Cantidad"] = cantidad;
 
       dataTable.Rows.Add(row);
 
       return dataTable;
     }
-
-    private bool IsRegisterRepeat(DataTable table, string idProducto)
+    private DataRow GetExistingRow(DataTable table, string idProducto)
     {
-      bool isRepeatRegister = false;
       foreach (DataRow row in table.Rows)
       {
         if (row["IdProducto"].ToString() == idProducto)
         {
-          isRepeatRegister = true;
-          break;
+          return row;
         }
       }
-      return isRepeatRegister;
+      return null;
     }
   }
 }
+
+/*
+private bool IsRegisterRepeat(DataTable table, string idProducto)
+{
+  bool isRepeatRegister = false;
+  foreach (DataRow row in table.Rows)
+  {
+    if (row["IdProducto"].ToString() == idProducto)
+    {
+      isRepeatRegister = true;
+      break;
+    }
+  }
+  return isRepeatRegister;
+}
+*/
