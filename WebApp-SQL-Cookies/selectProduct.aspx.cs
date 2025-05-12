@@ -31,6 +31,7 @@ namespace WebApp_SQL_Cookies
       this.LoadGridView();
     }
 
+    private bool fisrtRegister = false;
     protected void gridProducts_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
       // Show in the same page 
@@ -41,13 +42,41 @@ namespace WebApp_SQL_Cookies
       string idProveedor = ((Label)gridProducts.Rows[e.NewSelectedIndex].FindControl("itemTemplate_IdProveedor")).Text;
       string precioUnidad = ((Label)gridProducts.Rows[e.NewSelectedIndex].FindControl("itemTemplate_PrecioUnidad")).Text;
 
-      // Use a SESION variable     
+      // Use a SESION variable
+      //DataTable productTable;
+
       if (Session["TableProduct"] == null)
       {
+        // productTable = this.CreateTable();
+        // Session["TableProduct"] = productTable;
         Session["TableProduct"] = this.CreateTable();
+        fisrtRegister = true;
       }
 
-      this.AddRegister((DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad);
+ 
+      if (fisrtRegister)
+      {
+        this.AddRegister((DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad);
+        fisrtRegister = false;
+      }
+      else
+      {
+        // Verification if the product has been registered yet
+        bool isRepeatRegister = false;
+        foreach (DataRow row in ((DataTable)Session["TableProduct"]).Rows)
+        {
+          if (row["IdProducto"].ToString() == idProducto)
+          {
+            isRepeatRegister = true;
+            break;
+          }
+        }
+        // If the register is not register
+        if (!isRepeatRegister)
+        {
+          this.AddRegister((DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad);
+        }
+      }
     }
     private DataTable CreateTable()
     {

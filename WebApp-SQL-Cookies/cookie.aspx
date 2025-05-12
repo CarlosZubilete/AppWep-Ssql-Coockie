@@ -36,7 +36,7 @@
             </li>
           <%-- EJERCICIO-2--%> 
             <li class="navBar__ul__li">          
-                <asp:HyperLink ID="HyperLink1" 
+                <asp:HyperLink ID="linkCookie" 
                   runat="server" NavigateUrl="~/cookie.aspx" 
                   CssClass="navBar__link active">
                     Cookie 
@@ -45,25 +45,30 @@
         </ul>
     </div>
 
-  <h1 class="title">Inicio</h1>
-    <form id="form1" runat="server">
-        <div>
-          <ul>
-            <li>
-              <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/selectProduct.aspx" 
-                  CssClass="navBar__link">
+  <form id="form1" runat="server">
+    <h1 class="title">Inicio</h1>
+          <ul class="navBar__form">
+            <li class="navBar__form__item">
+              <asp:HyperLink ID="linkSelectProduct" runat="server" NavigateUrl="~/selectProduct.aspx" 
+                  CssClass="navBar__form__link">
                     Seleccionar Producto
               </asp:HyperLink>
             </li>
-            <li>Elimnar Productos Seleccionados</li>
-            <li>
-              <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/showProduct.aspx" 
-                  CssClass="navBar__link">
+
+            <li class="navBar__form__item">
+              <asp:LinkButton ID="btnDeleteProduct" runat="server" 
+                CssClass="navBar__form__link">
+                Eliminar Productos Seleccionados
+              </asp:LinkButton>
+            </li>
+
+            <li class="navBar__form__item">
+              <asp:HyperLink ID="linkShowProduct" runat="server" NavigateUrl="~/showProduct.aspx" 
+                  CssClass="navBar__form__link">
                     Mostrar Producto
               </asp:HyperLink>
             </li>
           </ul>  
-        </div>
     </form>
 </body>
 </html>
