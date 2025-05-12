@@ -1,7 +1,7 @@
-﻿<%@ Page 
-  Language="C#" 
-  AutoEventWireup="true" 
-  CodeBehind="cookie.aspx.cs" 
+﻿<%@ Page
+  Language="C#"
+  AutoEventWireup="true"
+  CodeBehind="cookie.aspx.cs"
   UnobtrusiveValidationMode="None"
   Inherits="WebApp_SQL_Cookies.producto_2" %>
 
@@ -9,66 +9,66 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Cookie</title>
-    <link  type="text/css" rel="stylesheet" href="cookie.css"/>
+  <title>Cookie</title>
+  <link type="text/css" rel="stylesheet" href="cookie.css" />
 </head>
 <body>
-      <%-- Nav --%>
-    <div class="navBar">
-        <ul class="navBar__ul">
-          <%-- INDEX --%>
-            <li class="navBar__ul__li">
-                <asp:HyperLink  ID="linkIndex" 
-                  runat="server" 
-                  NavigateUrl="~/index.aspx" 
-                  CssClass="navBar__link " >
+  <%-- Nav --%>
+  <div class="navBar">
+    <ul class="navBar__ul">
+      <%-- INDEX --%>
+      <li class="navBar__ul__li">
+        <asp:HyperLink ID="linkIndex"
+          runat="server"
+          NavigateUrl="~/index.aspx"
+          CssClass="navBar__link ">
                     Home
-                </asp:HyperLink>
-            </li>
-          <%-- PRODUCTS --%> 
-            <li class="navBar__ul__li">
-                <asp:HyperLink ID="linkProducts" 
-                  runat="server" 
-                  NavigateUrl="~/products.aspx" 
-                  CssClass="navBar__link " >
+        </asp:HyperLink>
+      </li>
+      <%-- PRODUCTS --%>
+      <li class="navBar__ul__li">
+        <asp:HyperLink ID="linkProducts"
+          runat="server"
+          NavigateUrl="~/products.aspx"
+          CssClass="navBar__link ">
                     Productos 
-                </asp:HyperLink>
-            </li>
-          <%-- EJERCICIO-2--%> 
-            <li class="navBar__ul__li">          
-                <asp:HyperLink ID="linkCookie" 
-                  runat="server" NavigateUrl="~/cookie.aspx" 
-                  CssClass="navBar__link active">
+        </asp:HyperLink>
+      </li>
+      <%-- EJERCICIO-2--%>
+      <li class="navBar__ul__li">
+        <asp:HyperLink ID="linkCookie"
+          runat="server" NavigateUrl="~/cookie.aspx"
+          CssClass="navBar__link active">
                     Cookie 
-                </asp:HyperLink>
-            </li>
-        </ul>
-    </div>
+        </asp:HyperLink>
+      </li>
+    </ul>
+  </div>
 
   <form id="form1" runat="server">
     <h1 class="title">Inicio</h1>
-          <ul class="navBar__form">
-            <li class="navBar__form__item">
-              <asp:HyperLink ID="linkSelectProduct" runat="server" NavigateUrl="~/selectProduct.aspx" 
-                  CssClass="navBar__form__link">
+    <ul class="navBar__form">
+      <li class="navBar__form__item">
+        <asp:HyperLink ID="linkSelectProduct" runat="server" NavigateUrl="~/selectProduct.aspx"
+          CssClass="navBar__form__link">
                     Seleccionar Producto
-              </asp:HyperLink>
-            </li>
+        </asp:HyperLink>
+      </li>
 
-            <li class="navBar__form__item">
-              <asp:LinkButton ID="btnDeleteProduct" runat="server" 
-                CssClass="navBar__form__link">
+      <li class="navBar__form__item">
+        <asp:LinkButton ID="btnDeleteProduct" runat="server"
+          CssClass="navBar__form__link">
                 Eliminar Productos Seleccionados
-              </asp:LinkButton>
-            </li>
+        </asp:LinkButton>
+      </li>
 
-            <li class="navBar__form__item">
-              <asp:HyperLink ID="linkShowProduct" runat="server" NavigateUrl="~/showProduct.aspx" 
-                  CssClass="navBar__form__link">
+      <li class="navBar__form__item">
+        <asp:HyperLink ID="linkShowProduct" runat="server" NavigateUrl="~/showProduct.aspx"
+          CssClass="navBar__form__link">
                     Mostrar Producto
-              </asp:HyperLink>
-            </li>
-          </ul>  
-    </form>
+        </asp:HyperLink>
+      </li>
+    </ul>
+  </form>
 </body>
 </html>

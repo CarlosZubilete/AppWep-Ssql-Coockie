@@ -53,7 +53,6 @@ namespace WebApp_SQL_Cookies
         fisrtRegister = true;
       }
 
- 
       if (fisrtRegister)
       {
         this.AddRegister((DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad);
@@ -62,21 +61,29 @@ namespace WebApp_SQL_Cookies
       else
       {
         // Verification if the product has been registered yet
-        bool isRepeatRegister = false;
-        foreach (DataRow row in ((DataTable)Session["TableProduct"]).Rows)
-        {
-          if (row["IdProducto"].ToString() == idProducto)
-          {
-            isRepeatRegister = true;
-            break;
-          }
-        }
-        // If the register is not register
-        if (!isRepeatRegister)
+        if (!this.IsRegisterRepeat((DataTable)Session["TableProduct"], idProducto))
         {
           this.AddRegister((DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad);
         }
+        // Verification if the product has been registered yet
+        //bool isRepeatRegister = false;
+        //foreach (DataRow row in ((DataTable)Session["TableProduct"]).Rows)
+        //{
+        //    if (row["IdProducto"].ToString() == idProducto)
+        //    {
+        //        isRepeatRegister = true;
+        //        break;
+        //    }
+        //}
+        //// If the register is not register
+        //if (!isRepeatRegister)
+        //{
+        //    this.AddRegister(ref (DataTable)Session["TableProduct"], idProducto, nameProduct, idProveedor, precioUnidad);
+        //}
       }
+      // TODO:
+      // 1. Crear fucniones para mejor legilibilidad
+      // 2. Agregar un columna mas "unidades" , para contar los clicks elejidos
     }
     private DataTable CreateTable()
     {
@@ -109,6 +116,20 @@ namespace WebApp_SQL_Cookies
       dataTable.Rows.Add(row);
 
       return dataTable;
+    }
+
+    private bool IsRegisterRepeat(DataTable table, string idProducto)
+    {
+      bool isRepeatRegister = false;
+      foreach (DataRow row in table.Rows)
+      {
+        if (row["IdProducto"].ToString() == idProducto)
+        {
+          isRepeatRegister = true;
+          break;
+        }
+      }
+      return isRepeatRegister;
     }
   }
 }
