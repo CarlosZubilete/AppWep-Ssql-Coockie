@@ -75,6 +75,15 @@ body {
   color: #555;
 }
 
+.SO_message {
+  display: block;
+  /*border: 1px solid #ff0000;*/
+  text-align: center;
+  /*margin: 2rem 0 1rem 0;*/
+  font-size: 1rem;
+  color: #ff0000;
+}
+
 /* Lista de items en el formulario */
 .navBar__form {
   list-style: none;
@@ -120,3 +129,4 @@ body {
   color: #16A085;
   cursor: pointer;
 }
+

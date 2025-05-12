@@ -57,7 +57,7 @@
 
       <li class="navBar__form__item">
         <asp:LinkButton ID="btnDeleteProduct" runat="server"
-          CssClass="navBar__form__link">
+          CssClass="navBar__form__link" OnClick="btnDeleteProduct_Click">
                 Eliminar Productos Seleccionados
         </asp:LinkButton>
       </li>
@@ -69,6 +69,14 @@
         </asp:HyperLink>
       </li>
     </ul>
+    <hr />
+    <%-- S.O MESSAGE --%>
+    <div>
+    <%-- TEST OF THE TIMER --%>
+      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+      <asp:Timer ID="timerCount" runat="server" Interval="3000" OnTick="timerCount_Tick"></asp:Timer>
+      <asp:Label ID="lblMessage" runat="server" CssClass="SO_message"></asp:Label>
+    </div>
   </form>
 </body>
 </html>

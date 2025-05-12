@@ -76,5 +76,32 @@ namespace WebApp_SQL_Cookies
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.HyperLink linkShowProduct;
+
+    /// <summary>
+    /// ScriptManager1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+    /// <summary>
+    /// timerCount control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.Timer timerCount;
+
+    /// <summary>
+    /// lblMessage control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblMessage;
   }
 }
