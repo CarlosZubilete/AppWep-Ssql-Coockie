@@ -74,18 +74,11 @@ CREATE PROCEDURE spEliminarProducto
     @IDPRODUCTO INT
 )
 AS
-BEGIN
-    SET NOCOUNT ON;
+
+DELETE FROM PRODUCTOS
+WHERE IDPRODUCTO = @IDPRODUCTO;
     
-    DELETE FROM PRODUCTOS
-    WHERE IDPRODUCTO = @IDPRODUCTO;
-    
-    -- para verificar si la eliminación fue exitosa
-    IF @@ROWCOUNT > 0
-        RETURN 1; -- Eliminado con éxito
-    ELSE
-        RETURN 0; -- No se encontró el registro
-END
+RETURN
 */
 
 /*

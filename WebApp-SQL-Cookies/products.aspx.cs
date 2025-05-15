@@ -47,6 +47,7 @@ namespace WebApp_SQL_Cookies
         HandleProducto handleProducto = new HandleProducto();
         if (handleProducto.DeleteProducto(producto))
         {
+          // gridProducts.EditIndex = -1;
           this.LoadGridView();
           lblShow_SO.Text = $"Registro se ha Eliminado";
           // Start timer 
@@ -57,7 +58,7 @@ namespace WebApp_SQL_Cookies
       {
         gridProducts.EditIndex = -1;
         this.LoadGridView();
-        lblShow_SO.Text = $"So dice : Erro al eliminar el registro: " +  err.Message;
+        lblShow_SO.Text = $"¡ERROR! " +  err.Message;
         // Start timer 
         timerCount.Enabled = true;
       }
@@ -100,7 +101,7 @@ namespace WebApp_SQL_Cookies
       {
         gridProducts.EditIndex = -1;
         this.LoadGridView();
-        lblShow_SO.Text = "SO dice: Error a actualizar el registro" + err.Message;
+        lblShow_SO.Text = "¡ERROR! " + err.Message;
         // Start timer 
         timerCount.Enabled = true;
       }

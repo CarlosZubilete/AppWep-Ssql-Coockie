@@ -1,4 +1,4 @@
-﻿/* Reset básico */
+﻿ /* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -76,7 +76,7 @@ body {
 }
 
 .SO_message {
-  display:block;
+  display: block;
   /*border : 1px solid #ff0000;*/
   text-align: center;
   /*margin: 2rem 0 1rem 0;*/
@@ -96,6 +96,7 @@ body {
   color: white;
   font-weight: bold;
   text-align: center;
+  padding: 0 1rem;
 }
 
 /* Filas */
@@ -108,7 +109,7 @@ body {
 
 /* Filas alternas */
 .alternating-row {
-  text-align:center;
+  text-align: center;
   background-color: #E9E7E2;
 }
 
@@ -116,16 +117,17 @@ body {
 .edit-row {
   background-color: #D4E6F1;
   color: #333;
+  width:100%;
 }
 
 /* Paginación */
 .pager-style {
-  height:50px;
-  text-align:center;
-  /*border: 1px solid #ff0000;*/ 
+  height: 50px;
+  text-align: center;
+  /*border: 1px solid #ff0000;*/
   background-color: #2C3E50;
   color: white;
-  padding:0 20px ;
+  padding: 0 20px;
   border-radius: 5px;
 }
 
@@ -140,6 +142,6 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.grid-action-button:hover {
-  background-color: #1ABC9C;
-}
+  .grid-action-button:hover {
+    background-color: #1ABC9C;
+  }
